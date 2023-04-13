@@ -1,0 +1,39 @@
+#include <cassert>
+#include <cstdlib>
+#include <iostream>
+
+template <class T>
+bool priority_queue_heap<T>::is_empty() const {
+	return heapObj.is_empty();
+}
+
+template <class T>
+bool priority_queue_heap<T>::is_full() const {
+	return heapObj.is_full();
+}
+
+template <class T>
+T priority_queue_heap<T>::front() {
+	if (heapObj.is_empty()) {
+		std::cout << "Priority Queue is empty." << std::endl;
+	} else { return heapObj.front(); }
+}
+
+template <class T>
+T priority_queue_heap<T>::dequeue() {
+	if (heapObj.is_empty()) {
+		std::cout << "Priority Queue is empty." << std::endl;
+	} else { return heapObj.remove(); }
+}
+
+template <class T>
+void priority_queue_heap<T>::enqueue(const T& value) {
+	if (heapObj.is_full()) {
+		std::cout << "Priority Queue is full." << std::endl;
+	} else {	heapObj.insert(value);	}
+}
+
+template <class T>
+bool priority_queue_heap<T>::print() {
+	return heapObj.check_heap();
+}
